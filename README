@@ -1,0 +1,54 @@
+macr - Randomizes MAC Addresses and much more
+
+SYNOPSIS
+    macr [ -ehpsV ] [ -i interface ] [ -m ADDRESS ] [ -v vendor ]
+
+DESCRIPTION
+    Macr is a mac spoofing application writen in python3 for linux. If ran
+    without arguments macr well come up with a random address and apply it
+    to the interface defined in /etc/macr.conf. This is great quick and easy 
+    address spoofing. However, this is not the fullest extent of macr's 
+    capabilities. Macr can randomizes the end of the address, pick a 
+    random vendor OUI, grab an address from a macr.conf, or even allow you to
+    define an address manually.
+    
+    Macr was originally inspired be mac_spoof.py write by a5an0 and is 
+    avalable here http://wiki.hak5.org/index.php?title=MAC_Randomizer and
+    parts of macr's macRand function are borrowed from mac_spoof.py
+    
+OPTIONS
+    -e --end
+        Randomizes the last 3 bytes of the mac address
+        and leaves the OUI as it is.
+
+    -h --help
+        Displays help massage and exits.
+
+    -p --predefined
+        Instead of randomizeing the address the macr will go to the file 
+        /etc/macr.conf and use the address in that file. 
+        The default address is 00:11:22:33:44:55 
+
+    -s --show
+        Displays the current address and exits.
+
+    -V --version
+        Displays version number and exits
+
+    -i INTERFACE --interface INTERFACE
+        Manually sets which interface to use. If this is not used macr will
+        use the interface defined in /etc/macr.conf.
+
+    -m ADDRESS --mac ADDERESS
+        Manually sets the mac address.
+
+    -v VENDOR --vendor VENDOR
+        Sets the first 3 bytes to match a mac address
+        of the given vendor. For example Ieee8021 will 
+        yield a address beganing with '00:0F:AC', or '00:80:C2' 
+
+    
+AUTHOR
+    <abirz.novem@gmail.com>
+
+
