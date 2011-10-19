@@ -1,0 +1,266 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+# macr:V0.5-D18-M10-Y11
+#
+#    macr - Randomizes MAC Addresses and much more
+#       
+#    Copyright 2011  <Abirz Novem>
+#       
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# 
+# 
+
+
+import argparse
+import binascii
+import fcntl 
+import os
+import random
+import socket
+import struct
+
+# Debugging
+debug_out = False
+#debug_out = True
+
+# ioctl numbers
+SIOCGIFHWADDR = 0x8927
+SIOCSIFHWADDR = 0x8924
+
+SIOCGIWMODE = 0x8B07 #get operation mode
+SIOCSIWMODE = 0x8B06 #set operation mode
+
+SIOCGIFFLAGS = 0x8913
+SIOCSIFFLAGS = 0x8914
+
+
+###########################Class Interface##############################
+class interface:
+
+    def __init__(self, newMac, name):
+        self.soc = socket.socket(socket.AF_UNIX, socket.SOCK_RAW)
+        self.name = name
+        self.oldMac = self.get()
+        self.newMac = newMac
+
+
+    def get(self):
+        """ Gets the old mac address of the interface 
+		    and returns is in a standard format. 
+        """
+        raw = fcntl.ioctl(self.soc.fileno(), SIOCGIFHWADDR,  
+                          struct.pack('16s240x', 
+                          self.name[:15].encode('ascii')))
+        macS1 = binascii.hexlify(raw[18:24]).decode('utf-8')
+        macS1 += '     '
+        macS2 = ''
+        for i in range(17):
+            macS2 += macS1[i]
+            if i in range(1,12,2):
+                macS2 += ':'
+        return macS2[0:17]
+  
+  
+    def set(self):
+        """ Sets the new mac address """
+        self.stateToggle('down')
+        macS2 = ''
+        for i in range(17):
+            if self.newMac[i] != ':':
+                macS2 += self.newMac[i]
+        macS3 = binascii.unhexlify(macS2.encode('ascii'))
+        fcntl.ioctl(self.soc.fileno(), SIOCSIFHWADDR, 
+                    struct.pack('16sH12s226x',
+                    self.name.encode('ascii'), 1, macS3))
+        self.stateToggle('up')
+
+
+    def display(self): 
+        """ Checks if the old and new addresses are the same and 
+            displays the new mac address
+        """
+        if self.newMac == self.oldMac:
+             print('Mac address has not changed!')
+             print(self.name + '\'s old addr =', self.oldMac)
+             print(self.name + '\'s new addr =', self.newMac)
+             print()
+        print (self.name + ': ' + self.newMac)
+
+
+    def stateToggle(self, toggle):
+        """ Toggles the state of the interface. Up or down depending on
+		    the argument.
+        """
+        if toggle is 'up':
+            fcntl.ioctl(self.soc.fileno(), SIOCSIFFLAGS,
+                        struct.pack('16sH',
+                        self.name.encode('ascii'), 4099))
+        elif toggle is 'down':
+            fcntl.ioctl(self.soc.fileno(), SIOCSIFFLAGS, 
+                        struct.pack('16sH',
+                        self.name.encode('ascii'), 4098))
+    
+    
+    def opmode(self,mode):
+        pass
+        #SIOCGIWMODE = 0x8B07 #get operation mode
+        #SIOCSIWMODE = 0x8B06 #set operation mode
+
+                       
+########################################################################            
+
+def macRand():
+    """ returns a random mac address. """ 
+    hex = {
+           '0' : 0, '1' : 1, '2' : 2, '3' : 3,
+           '4' : 4, '5' : 5, '6' : 6, '7' : 7,
+           '8' : 8, '9' : 9, 'a' : 10,'b' : 11,
+           'c' : 12,'d' : 13,'e' : 14,'f' : 15 
+           }
+    rawMac = ''
+    for i in range(6):
+        rawMac += ":%02x" % random.randrange(256)
+        mac = rawMac[1:]
+    if hex[mac[1]] % 2 is 0: 
+        return mac 
+    else:
+        # from mac_spoof.py write by a5an0
+        rawMac = '00'
+        for i in range(5):
+            rawMac += ":%02x" % random.randrange(256)
+            mac = rawMac
+        return mac
+
+
+def fileSearch(key):
+# file parser func
+    for line in open('/etc/macr/macr.conf', 'r'):
+        if line[:1] == '#':
+            pass
+        elif key in line:
+            result = line[len(key) + 3:-1]
+    return result
+
+
+def main():
+
+# Parser argv.
+    parser = argparse.ArgumentParser(
+            description='macr - Randomizes MAC addresses and much more')
+    parser.add_argument('-i', '--interface', action='store',
+                        dest='interface', help='Set interface name.')
+    parser.add_argument('-m', '--mac', action='store', dest='mac',
+                        help='Manually sets the mac address.')
+    parser.add_argument('-p', '--predefined', action='store_true', 
+                        dest='predefined', 
+                        help='Use predefined mac from macr.conf')
+    parser.add_argument('-V', '--version', action='store_true', 
+                        dest='version', help='Display version number.')
+    parser.add_argument('-s', '--show', action='store_true', 
+                        dest='show', 
+                        help='Display current mac address and exit')
+    parser.add_argument('-e', '--end', action='store_true',  
+                        dest='end', 
+                        help='Change the ending and keeps the vendor bytes')
+    parser.add_argument('-v', '--vendor', action='store',  
+                        dest='vendor', 
+                        help='Sets the first 3 bytes to match a' 
+                        ' mac address of the given vendor.')
+    arg = parser.parse_args()
+
+    if debug_out == True:
+        print(arg)
+        
+#  Display version
+    if arg.version is True:
+        print('---------------------------------')
+        print('| Macr version V0.5-D18-M10-Y11 |')
+        print('---------------------------------')
+        exit(0)
+
+
+# No interface use the default
+    if arg.interface is None:
+        arg.interface = fileSearch('interface')
+        
+        
+# Display current mac address and exit
+    if arg.show is True:
+        show = interface(None, arg.interface)
+        print(arg.interface + ':', show.get())
+        exit(0)
+
+
+# change the ending of the mac addr
+    if arg.end is True:
+       end = interface(None, arg.interface)
+       end.newMac = end.get()[:8] + macRand()[8:]
+       end.set()
+       end.display()
+       exit(0)
+
+       
+# Set the vendor bytes
+    if arg.vendor is not None:
+        vendor = interface(None, arg.interface)
+        vlist = fileSearch('vlist')
+        result = []
+        for line in open(vlist, 'r'):
+            if line[:1] == '#':
+                pass
+            elif arg.vendor.lower() in line[ 9 : len(arg.vendor) + 9 ].lower():
+                result.append(line[:8])
+        #print(result)
+        vendor.newMac = result[random.randrange(len(result))] + macRand()[8:]
+        vendor.set()
+        vendor.display()
+        exit(0)
+
+
+# mac predefined in arguments
+    if arg.mac is not None:
+        mac = interface(arg.mac, arg.interface)
+        if debug_out == True:
+            print(mac.name + '\'s old addr =', mac.oldMac)
+            print(mac.name + '\'s new addr = ', mac.newMac)
+        mac.set()
+        mac.display()
+        exit(0)
+
+        
+# Predefined mac macr.conf
+    if arg.predefined is True:
+        predefinedMac = fileSearch('predefined mac')
+        predefined = interface(predefinedMac, arg.interface)
+        if debug_out == True:
+            print(predefined.name + '\'s old addr =', predefined.oldMac)
+            print(predefined.name + '\'s new addr = ', predefined.newMac)
+        predefined.set()
+        predefined.display()
+        exit(0)
+
+
+# No arguments default
+    iface = interface(macRand(), arg.interface)
+    if debug_out == True:
+        print(iface.name + '\'s old addr =', iface.oldMac)
+        print(iface.name + '\'s new addr =', iface.newMac)
+    iface.set()
+    iface.display()
+
+    return 0
+
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,12 @@
+
+DEPENDENTS
+    Macr will require python3
+    To get python3 on ubuntu type: sudo apt-get install python3
+
+
+INSTALL & UNINSTALL
+    To install:
+    $ sudo macr-setup.py --install
+    
+    To uninstall simply type:
+    $ sudo macr-setup.py --uninstall
