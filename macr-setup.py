@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
-# macr:V0.5-D18-M10-Y11
+#
 #
 #  macr-setup.py
 #  

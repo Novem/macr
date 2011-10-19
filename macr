@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
-# macr:V0.5-D18-M10-Y11
+#
 #
 #    macr - Randomizes MAC Addresses and much more
 #       
@@ -112,7 +112,7 @@ class interface:
                         self.name.encode('ascii'), 4098))
     
     
-    def opmode(self,mode):
+    def wirelessOpMode(self,mode):
         pass
         #SIOCGIWMODE = 0x8B07 #get operation mode
         #SIOCSIWMODE = 0x8B06 #set operation mode
@@ -184,9 +184,9 @@ def main():
         
 #  Display version
     if arg.version is True:
-        print('---------------------------------')
-        print('| Macr version V0.5-D18-M10-Y11 |')
-        print('---------------------------------')
+        print('-----------------------')
+        print('|  Macr version v0.5  |')
+        print('-----------------------')
         exit(0)
 
 
