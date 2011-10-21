@@ -1,7 +1,7 @@
 macr - Randomizes MAC Addresses and much more
 
 SYNOPSIS
-    macr [ -ehpsV ] [ -i interface ] [ -m ADDRESS ] [ -v vendor ]
+    macr [ -ehps ] [ -i interface ] [ -m ADDRESS ] [ -v vendor ]
 
 DESCRIPTION
     Macr is a mac spoofing application writen in python3 for linux. If ran
@@ -31,9 +31,6 @@ OPTIONS
 
     -s --show
         Displays the current address and exits.
-
-    -V --version
-        Displays version number and exits
 
     -i INTERFACE --interface INTERFACE
         Manually sets which interface to use. If this is not used macr will
