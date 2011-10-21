@@ -35,14 +35,14 @@ debug_out = False
 #debug_out = True
 
 # ioctl numbers
-SIOCGIFHWADDR = 0x8927
-SIOCSIFHWADDR = 0x8924
+SIOCGIFHWADDR = 0x8927 #get mac address
+SIOCSIFHWADDR = 0x8924 #set mac address
 
 SIOCGIWMODE = 0x8B07 #get operation mode
 SIOCSIWMODE = 0x8B06 #set operation mode
 
-SIOCGIFFLAGS = 0x8913
-SIOCSIFFLAGS = 0x8914
+SIOCGIFFLAGS = 0x8913 #get flag
+SIOCSIFFLAGS = 0x8914 #set flag
 
 
 ###########################Class Interface##############################
@@ -75,6 +75,13 @@ class interface:
     def set(self):
         """ Sets the new mac address """
         self.stateToggle('down')
+        try:
+            opModeSwitched = False
+            if self.getOpMode() == b'06':
+                opModeSwitched = True
+                self.setOpMode('managed')
+        except IOError:
+            pass 
         macS2 = ''
         for i in range(17):
             if self.newMac[i] != ':':
@@ -83,19 +90,12 @@ class interface:
         fcntl.ioctl(self.soc.fileno(), SIOCSIFHWADDR, 
                     struct.pack('16sH12s226x',
                     self.name.encode('ascii'), 1, macS3))
+        try:
+            if opModeSwitched == True:
+                self.setOpMode('monitor')
+        except IOError:
+            pass 
         self.stateToggle('up')
-
-
-    def display(self): 
-        """ Checks if the old and new addresses are the same and 
-            displays the new mac address
-        """
-        if self.newMac == self.oldMac:
-             print('Mac address has not changed!')
-             print(self.name + '\'s old addr =', self.oldMac)
-             print(self.name + '\'s new addr =', self.newMac)
-             print()
-        print (self.name + ': ' + self.newMac)
 
 
     def stateToggle(self, toggle):
@@ -112,10 +112,37 @@ class interface:
                         self.name.encode('ascii'), 4098))
     
     
-    def wirelessOpMode(self,mode):
-        pass
-        #SIOCGIWMODE = 0x8B07 #get operation mode
-        #SIOCSIWMODE = 0x8B06 #set operation mode
+    def getOpMode(self):
+        """ Get wireless operation mode. """
+        raw = fcntl.ioctl(self.soc.fileno(), SIOCGIWMODE,  
+                          struct.pack('16sx', 
+                          self.name[:15].encode('ascii')))
+        return binascii.hexlify(raw[16:])
+
+    
+    def setOpMode(self, mode):
+        """ Set wireless operation mode. """
+        if mode is 'managed':
+            fcntl.ioctl(self.soc.fileno(), SIOCSIWMODE,
+                        struct.pack('16sH247x',
+                        self.name[:15].encode('ascii'), 2))
+        elif mode is 'monitor':
+            fcntl.ioctl(self.soc.fileno(), SIOCSIWMODE,
+                        struct.pack('16sH247x',
+                        self.name[:15].encode('ascii'), 6))
+
+
+    def display(self): 
+        """ Checks if the old and new addresses are the same and 
+            displays the new mac address
+            
+        """
+        if self.newMac == self.oldMac:
+             print('Mac address has not changed!')
+             print(self.name + '\'s old addr =', self.oldMac)
+             print(self.name + '\'s new addr =', self.newMac)
+             print()
+        print (self.name + ': ' + self.newMac)
 
                        
 ########################################################################            
@@ -165,8 +192,6 @@ def main():
     parser.add_argument('-p', '--predefined', action='store_true', 
                         dest='predefined', 
                         help='Use predefined mac from macr.conf')
-    parser.add_argument('-V', '--version', action='store_true', 
-                        dest='version', help='Display version number.')
     parser.add_argument('-s', '--show', action='store_true', 
                         dest='show', 
                         help='Display current mac address and exit')
@@ -182,13 +207,6 @@ def main():
     if debug_out == True:
         print(arg)
         
-#  Display version
-    if arg.version is True:
-        print('-----------------------')
-        print('|  Macr version v0.5  |')
-        print('-----------------------')
-        exit(0)
-
 
 # No interface use the default
     if arg.interface is None:
