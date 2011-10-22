@@ -1,12 +1,18 @@
+Macr has been tested on Ubuntu and Archlinux
 
 DEPENDENTS
     Macr will require python3
-    To get python3 on ubuntu type: sudo apt-get install python3
+
+    To install python3 on ubuntu:
+    $ sudo apt-get install python3
+
+    To install python3 on Archlinux:
+    # pacman -Syyu python
 
 
 INSTALL & UNINSTALL
     To install:
-    $ sudo macr-setup.py --install
+    $ sudo ./macr-setup.py --install
     
-    To uninstall simply type:
-    $ sudo macr-setup.py --uninstall
+    To uninstall:
+    $ sudo ./macr-setup.py --uninstall
