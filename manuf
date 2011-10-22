@@ -532,8 +532,8 @@
 00:01:E3	Siemens                # Siemens AG
 00:01:E4	Sitera                 # Sitera, Inc.
 00:01:E5	Supernet               # Supernet, Inc.
-00:01:E6	Hewlett-               # Hewlett-Packard Company
-00:01:E7	Hewlett-               # Hewlett-Packard Company
+00:01:E6	hp                     # Hewlett-Packard Company
+00:01:E7	hp                     # Hewlett-Packard Company
 00:01:E8	Force10N               # Force10 Networks, Inc.
 00:01:E9	LittonMa               # Litton Marine Systems B.V.
 00:01:EA	Cirilium               # Cirilium Corp.
@@ -723,7 +723,7 @@
 00:02:A2	Hilscher               # Hilscher GmbH
 00:02:A3	AbbSwitz               # ABB Switzerland Ltd, Power Systems
 00:02:A4	AddpacTe               # AddPac Technology Co., Ltd.
-00:02:A5	Hewlett-               # Hewlett-Packard Company
+00:02:A5	hp                     # Hewlett-Packard Company
 00:02:A6	Effinet                # Effinet Systems Co., Ltd.
 00:02:A7	VivaceNe               # Vivace Networks
 00:02:A8	AirLinkT               # Air Link Technology
@@ -774,7 +774,7 @@
 00:02:D5	Acr
 00:02:D6	Nice                   # NICE Systems
 00:02:D7	Empeg                  # EMPEG Ltd
-00:02:D8	BrecisCo               # BRECIS Communications Corporation
+00:02:D8	Brecis               # BRECIS Communications Corporation
 00:02:D9	Reliable               # Reliable Controls
 00:02:DA	ExioComm               # ExiO Communications, Inc.
 00:02:DB	Netsec
@@ -1304,7 +1304,7 @@
 00:04:E7	Lightpoi               # Lightpointe Communications, Inc
 00:04:E8	Ier                    # IER, Inc.
 00:04:E9	Infinisw               # Infiniswitch Corporation
-00:04:EA	Hewlett-               # Hewlett-Packard Company
+00:04:EA	hp                     # Hewlett-Packard Company
 00:04:EB	PaxonetC               # Paxonet Communications, Inc.
 00:04:EC	MemoboxS               # Memobox SA
 00:04:ED	BillionE               # Billion Electric Co., Ltd.
@@ -1839,7 +1839,7 @@
 00:06:FE	Ambrado                # Ambrado, Inc
 00:06:FF	Sheba                  # Sheba Systems Co., Ltd.
 00:07:00	Zettamed               # Zettamedia Korea
-00:07:01	Cisco		           # RACAL-DATACOM
+00:07:01	Racaldata		       # RACAL-DATACOM
 00:07:02	VarianMe               # Varian Medical Systems
 00:07:03	CseeTran               # CSEE Transport
 00:07:04	AlpsElec               # ALPS Electric Co,. Ltd.
@@ -2096,7 +2096,7 @@
 00:07:FF	GluonNet               # Gluon Networks
 00:08:00	Multitec               # MULTITECH SYSTEMS, INC.
 00:08:01	Highspee               # HighSpeed Surfing Inc.
-00:08:02	Hewlett-               # Hewlett-Packard Company
+00:08:02	hp                     # Hewlett-Packard Company
 00:08:03	CosTron                # Cos Tron
 00:08:04	Ica                    # ICA Inc.
 00:08:05	Techno-H               # Techno-Holon Corporation
@@ -2196,7 +2196,7 @@
 00:08:80	Broadtel               # BroadTel Canada Communications inc.
 00:08:81	DigitalH               # DIGITAL HANDS CO.,LTD.
 00:08:82	Sigma                  # SIGMA CORPORATION
-00:08:83	Hewlett-               # Hewlett-Packard Company
+00:08:83	hp                     # Hewlett-Packard Company
 00:08:84	IndexBra               # Index Braille AB
 00:08:85	EmsDrTho               # EMS Dr. Thomas Wuensche
 00:08:86	HansungT               # Hansung Teliann, Inc.
@@ -2264,7 +2264,7 @@
 00:08:C4	Hikari                 # Hikari Co.,Ltd.
 00:08:C5	Liontech               # Liontech Co., Ltd.
 00:08:C6	PhilipsC               # Philips Consumer Communications
-00:08:C7	Hewlett-               # Hewlett-Packard Company
+00:08:C7	hp                     # Hewlett-Packard Company
 00:08:C8	Sonetico               # Soneticom, Inc.
 00:08:C9	Technisa               # TechniSat Digital GmbH
 00:08:CA	TwinhanT               # TwinHan Technology Co.,Ltd
@@ -2663,7 +2663,7 @@
 00:0A:54	LagunaHi               # Laguna Hills, Inc.
 00:0A:55	Markem                 # MARKEM Corporation
 00:0A:56	HitachiM               # HITACHI Maxell Ltd.
-00:0A:57	Hewlett-               # Hewlett-Packard Company - Standards
+00:0A:57	hp                     # Hewlett-Packard Company - Standards
 00:0A:58	Ingenieu               # Ingenieur-Buero Freyer & Siegel
 00:0A:59	HwServer               # HW server
 00:0A:5A	Greennet               # GreenNET Technologies Co.,Ltd.
@@ -2901,8 +2901,8 @@
 00:0B:42	Commax                 # commax Co., Ltd.
 00:0B:43	Microsca               # Microscan Systems, Inc.
 00:0B:44	ConcordI               # Concord IDea Corp.
-00:0B:45	Cisco
-00:0B:46	Cisco
+00:0B:45	Cisco 
+00:0B:46	Cisco 
 00:0B:47	Advanced               # Advanced Energy
 00:0B:48	Sofrel
 00:0B:49	Rf-LinkS               # RF-Link System Inc.
@@ -3037,7 +3037,7 @@
 00:0B:CA	DatavanI               # DATAVAN International Corporation
 00:0B:CB	FagorAut               # Fagor Automation , S. Coop
 00:0B:CC	JusanSA                # JUSAN, S.A.
-00:0B:CD	Hewlett-               # Hewlett-Packard Company
+00:0B:CD	hp                     # Hewlett-Packard Company
 00:0B:CE	Free2mov               # Free2move AB
 00:0B:CF	AgfaNdt                # AGFA NDT INC.
 00:0B:D0	XimetaTe               # XiMeta Technology Americas Inc.
@@ -3501,7 +3501,7 @@
 00:0D:9A	Infotec                # INFOTEC LTD
 00:0D:9B	HeraeusE               # Heraeus Electro-Nite International N.V.
 00:0D:9C	Elan                   # Elan GmbH & Co KG
-00:0D:9D	Hewlett-               # Hewlett-Packard Company
+00:0D:9D	hp                     # Hewlett-Packard Company
 00:0D:9E	TokudenO               # TOKUDEN OHIZUMI SEISAKUSYO Co.,Ltd.
 00:0D:9F	RfMicroD               # RF Micro Devices
 00:0D:A0	NedapNV                # NEDAP N.V.
@@ -3727,7 +3727,7 @@
 00:0E:7C	TelevesS               # Televes S.A.
 00:0E:7D	Electron               # Electronics Line 3000 Ltd.
 00:0E:7E	IonsignO               # ionSign Oy
-00:0E:7F	Hewlett-               # Hewlett-Packard Company
+00:0E:7F	hp                     # Hewlett-Packard Company
 00:0E:80	ThomsonT               # Thomson Technology Inc
 00:0E:81	Devicesc               # Devicescape Software, Inc.
 00:0E:82	Commtech               # Commtech Wireless
@@ -3779,7 +3779,7 @@
 00:0E:B0	Solution               # Solutions Radio BV
 00:0E:B1	Newcotec               # Newcotech,Ltd
 00:0E:B2	Micro-Re               # Micro-Research Finland Oy
-00:0E:B3	Hewlett-               # Hewlett-Packard
+00:0E:B3	hp                     # Hewlett-Packard
 00:0E:B4	Guangzho               # GUANGZHOU GAOKE COMMUNICATIONS TECHNOLOGY CO.LTD.
 00:0E:B5	EcastleE               # Ecastle Electronics Co., Ltd.
 00:0E:B6	Riverbed               # Riverbed Technology, Inc.
@@ -3888,7 +3888,7 @@
 00:0F:1D	CosmoTec               # Cosmo Techs Co., Ltd.
 00:0F:1E	ChengduK               # Chengdu KT Electric Co.of High & New Technology
 00:0F:1F	WwPcbaTe               # WW PCBA Test
-00:0F:20	Hewlett-               # Hewlett-Packard Company
+00:0F:20	hp                     # Hewlett-Packard Company
 00:0F:21	Scientif               # Scientific Atlanta, Inc
 00:0F:22	Helius                 # Helius, Inc.
 00:0F:23	Cisco                  # Cisco Systems
@@ -3953,7 +3953,7 @@
 00:0F:5E	Veo
 00:0F:5F	NicetyTe               # Nicety Technologies Inc. (NTS)
 00:0F:60	Lifetron               # Lifetron Co.,Ltd
-00:0F:61	Hewlett-               # Hewlett-Packard Company
+00:0F:61	hp                     # Hewlett-Packard Company
 00:0F:62	AlcatelB               # Alcatel Bell Space N.V.
 00:0F:63	ObzervTe               # Obzerv Technologies
 00:0F:64	D&RElect               # D&R Electronica Weesp BV
@@ -4243,7 +4243,7 @@
 00:10:80	Metawave               # METAWAVE COMMUNICATIONS
 00:10:81	Dps                    # DPS, INC.
 00:10:82	JnaTelec               # JNA TELECOMMUNICATIONS LIMITED
-00:10:83	Hewlett-               # HEWLETT-PACKARD COMPANY
+00:10:83	hp                     # HEWLETT-PACKARD COMPANY
 00:10:84	K-BotCom               # K-BOT COMMUNICATIONS
 00:10:85	PolarisC               # POLARIS COMMUNICATIONS, INC.
 00:10:86	AttoTech               # ATTO Technology, Inc.
@@ -4339,7 +4339,7 @@
 00:10:E0	Oracle                 # Oracle Corporation
 00:10:E1	SITech                 # S.I. TECH, INC.
 00:10:E2	Arraycom               # ArrayComm, Inc.
-00:10:E3	Hewlett-               # Hewlett-Packard Company
+00:10:E3	hp                     # Hewlett-Packard Company
 00:10:E4	Nsi                    # NSI CORPORATION
 00:10:E5	Solectro               # SOLECTRON TEXAS
 00:10:E6	AppliedI               # APPLIED INTELLIGENT SYSTEMS, INC.
@@ -4377,7 +4377,7 @@
 00:11:07	RgbNetwo               # RGB Networks Inc.
 00:11:08	OrbitalD               # Orbital Data Corporation
 00:11:09	Micro-St               # Micro-Star International
-00:11:0A	Hewlett-               # Hewlett-Packard Company
+00:11:0A	hp                     # Hewlett-Packard Company
 00:11:0B	Franklin               # Franklin Technology Systems
 00:11:0C	AtmarkTe               # Atmark Techno, Inc.
 00:11:0D	Sanblaze               # SANBlaze Technology, Inc.
@@ -4500,7 +4500,7 @@
 00:11:82	ImiNorgr               # IMI Norgren Ltd
 00:11:83	Datalogi               # Datalogic Mobile, Inc.
 00:11:84	HumoLabo               # Humo Laboratory,Ltd.
-00:11:85	Hewlett-               # Hewlett-Packard Company
+00:11:85	hp                     # Hewlett-Packard Company
 00:11:86	Prime                  # Prime Systems, Inc.
 00:11:87	Category               # Category Solutions, Inc
 00:11:88	Enterasy               # Enterasys
@@ -4744,7 +4744,7 @@
 00:12:76	CgPowerI               # CG Power Systems Ireland Limited
 00:12:77	KorenixT               # Korenix Technologies Co., Ltd.
 00:12:78	Internat               # International Bar Code
-00:12:79	Hewlett-               # Hewlett-Packard Company
+00:12:79	hp                     # Hewlett-Packard Company
 00:12:7A	SanyuInd               # Sanyu Industry Co.,Ltd.
 00:12:7B	ViaNetwo               # VIA Networking Technologies, Inc.
 00:12:7C	Swegon                 # SWEGON AB
@@ -4912,7 +4912,7 @@
 00:13:1E	PeikerAc               # Peiker acustic GmbH & Co. KG
 00:13:1F	Nxtphase               # NxtPhase T&D, Corp.
 00:13:20	IntelCor               # Intel Corporate
-00:13:21	Hewlett-               # Hewlett-Packard Company
+00:13:21	hp                     # Hewlett-Packard Company
 00:13:22	DaqElect               # DAQ Electronics, Inc.
 00:13:23	Cap                    # Cap Co., Ltd.
 00:13:24	Schneide               # Schneider Electric Ultra Terminal
@@ -5191,7 +5191,7 @@
 00:14:35	Citycom                # CityCom Corp.
 00:14:36	QwertyEl               # Qwerty Elektronik AB
 00:14:37	Gstelete               # GSTeletech Co.,Ltd.
-00:14:38	Hewlett-               # Hewlett-Packard Company
+00:14:38	hp                     # Hewlett-Packard Company
 00:14:39	BlonderT               # Blonder Tongue Laboratories, Inc.
 00:14:3A	RaytalkI               # RAYTALK INTERNATIONAL SRL
 00:14:3B	Sensovat               # Sensovation AG
@@ -5329,7 +5329,7 @@
 00:14:BF	Cisco-Li               # Cisco-Linksys LLC
 00:14:C0	Symstrea               # Symstream Technology Group Ltd
 00:14:C1	USRoboti               # U.S. Robotics Corporation
-00:14:C2	Hewlett-               # Hewlett-Packard Company
+00:14:C2	hp                     # Hewlett-Packard Company
 00:14:C3	SeagateT               # Seagate Technology LLC
 00:14:C4	Vitelcom               # Vitelcom Mobile Technology
 00:14:C5	AliveTec               # Alive Technologies Pty Ltd
@@ -5487,7 +5487,7 @@
 00:15:5D	Microsoft              # Microsoft Corporation
 00:15:5E	MorganSt               # Morgan Stanley
 00:15:5F	Greenpea               # GreenPeak Technologies
-00:15:60	Hewlett-               # Hewlett-Packard Company
+00:15:60	hp                     # Hewlett-Packard Company
 00:15:61	Jjplus                 # JJPlus Corporation
 00:15:62	Cisco                  # Cisco Systems
 00:15:63	Cisco                  # Cisco Systems
@@ -5700,7 +5700,7 @@
 00:16:32	SamsungE               # SAMSUNG ELECTRONICS CO., LTD.
 00:16:33	OxfordDi               # Oxford Diagnostics Ltd.
 00:16:34	Mathtech               # Mathtech, Inc.
-00:16:35	Hewlett-               # Hewlett-Packard Company
+00:16:35	hp                     # Hewlett-Packard Company
 00:16:36	QuantaCo               # Quanta Computer Inc.
 00:16:37	CitelSrl               # Citel Srl
 00:16:38	Tecom                  # TECOM Co., Ltd.
@@ -5911,7 +5911,7 @@
 00:17:05	MethodeE               # Methode Electronics
 00:17:06	Techfait               # Techfaith Wireless Communication Technology Limited.
 00:17:07	Ingrid                 # InGrid, Inc
-00:17:08	Hewlett-               # Hewlett-Packard Company
+00:17:08	hp                     # Hewlett-Packard Company
 00:17:09	ExaltCom               # Exalt Communications
 00:17:0A	InewDigi               # INEW DIGITAL COMPANY
 00:17:0B	Contela                # Contela, Inc.
@@ -6067,7 +6067,7 @@
 00:17:A1	3soft                  # 3soft inc.
 00:17:A2	Camrivox               # Camrivox Ltd.
 00:17:A3	MixSRL                 # MIX s.r.l.
-00:17:A4	Hewlett-               # Hewlett-Packard Company
+00:17:A4	hp                     # Hewlett-Packard Company
 00:17:A5	RalinkTe               # Ralink Technology Corp
 00:17:A6	YosinEle               # YOSIN ELECTRONICS CO., LTD.
 00:17:A7	MobileCo               # Mobile Computing Promotion Consortium
@@ -6272,7 +6272,7 @@
 00:18:6E	3com                   # 3Com Ltd
 00:18:6F	SethaInd               # Setha Industria Eletronica LTDA
 00:18:70	E28Shang               # E28 Shanghai Limited
-00:18:71	Hewlett-               # Hewlett-Packard Company
+00:18:71	hp                     # Hewlett-Packard Company
 00:18:72	Expertis               # Expertise Engineering
 00:18:73	Cisco                  # Cisco Systems
 00:18:74	Cisco                  # Cisco Systems
@@ -6413,7 +6413,7 @@
 00:18:FB	ComproTe               # Compro Technology
 00:18:FC	AltecEle               # Altec Electronic AG
 00:18:FD	OptimalT               # Optimal Technologies International Inc.
-00:18:FE	Hewlett-               # Hewlett-Packard Company
+00:18:FE	hp                     # Hewlett-Packard Company
 00:18:FF	Powerqua               # PowerQuattro Co.
 00:19:00	Intelliv               # Intelliverese - DBA Voicecom
 00:19:01	F1media
@@ -6602,7 +6602,7 @@
 00:19:B8	Boundary               # Boundary Devices
 00:19:B9	Dell                   # Dell Inc.
 00:19:BA	ParadoxS               # Paradox Security Systems Ltd
-00:19:BB	Hewlett-               # Hewlett-Packard Company
+00:19:BB	hp                     # Hewlett-Packard Company
 00:19:BC	ElectroC               # ELECTRO CHANCE SRL
 00:19:BD	NewMedia               # New Media Life
 00:19:BE	AltaiTec               # Altai Technologies Limited
@@ -6746,7 +6746,7 @@
 00:1A:48	Takacom                # Takacom Corporation
 00:1A:49	MicroVis               # Micro Vision Co.,LTD
 00:1A:4A	Qumranet               # Qumranet Inc.
-00:1A:4B	Hewlett-               # Hewlett-Packard Company
+00:1A:4B	hp                     # Hewlett-Packard Company
 00:1A:4C	Crossbow               # Crossbow Technology, Inc
 00:1A:4D	Giga-Byt               # GIGA-BYTE TECHNOLOGY CO.,LTD.
 00:1A:4E	Nti/Linm               # NTI AG / LinMot
@@ -7047,7 +7047,7 @@
 00:1B:75	Hypermed               # Hypermedia Systems
 00:1B:76	Ripcode                # Ripcode, Inc.
 00:1B:77	IntelCor               # Intel Corporate
-00:1B:78	Hewlett-               # Hewlett-Packard Company
+00:1B:78	hp                     # Hewlett-Packard Company
 00:1B:79	Faiveley               # FAIVELEY TRANSPORT
 00:1B:7A	Nintendo               # Nintendo Co., Ltd.
 00:1B:7B	Tintomet               # The Tintometer Ltd
@@ -7379,7 +7379,7 @@
 00:1C:C1	Motorola               # Motorola Mobility, Inc. 
 00:1C:C2	PartIiRe               # Part II Research, Inc.
 00:1C:C3	Pace                   # Pace plc
-00:1C:C4	Hewlett-               # Hewlett-Packard Company
+00:1C:C4	hp                     # Hewlett-Packard Company
 00:1C:C5	3com                   # 3COM LTD
 00:1C:C6	Prostor                # ProStor Systems
 00:1C:C7	Rembrand               # Rembrandt Technologies, LLC d/b/a REMSTREAM
@@ -7706,7 +7706,7 @@
 00:1E:08	CentecNe               # Centec Networks Inc
 00:1E:09	Zefatek                # ZEFATEK Co.,LTD
 00:1E:0A	SybaTech               # Syba Tech Limited
-00:1E:0B	Hewlett-               # Hewlett-Packard Company
+00:1E:0B	hp                     # Hewlett-Packard Company
 00:1E:0C	Sherwood               # Sherwood Information Partners, Inc.
 00:1E:0D	Micran                 # Micran Ltd.
 00:1E:0E	MaxiView               # MAXI VIEW HOLDINGS LIMITED
@@ -7992,7 +7992,7 @@
 00:1F:26	Cisco                  # Cisco Systems
 00:1F:27	Cisco                  # Cisco Systems
 00:1F:28	Procurve               # ProCurve Networking by HP
-00:1F:29	Hewlett-               # Hewlett-Packard Company
+00:1F:29	hp                     # Hewlett-Packard Company
 00:1F:2A	Accm
 00:1F:2B	OrangeLo               # Orange Logic
 00:1F:2C	Starbrid               # Starbridge Networks
@@ -8553,7 +8553,7 @@
 00:21:57	National               # National Datacast, Inc.
 00:21:58	StyleFly               # Style Flying Technology Co.
 00:21:59	JuniperN               # Juniper Networks
-00:21:5A	Hewlett-               # Hewlett-Packard Company
+00:21:5A	hp                     # Hewlett-Packard Company
 00:21:5B	Inotive
 00:21:5C	IntelCor               # Intel Corporate
 00:21:5D	IntelCor               # Intel Corporate
@@ -8819,7 +8819,7 @@
 00:22:61	Frontier               # Frontier Silicon Ltd
 00:22:62	BepMarin               # BEP Marine
 00:22:63	KoosTech               # Koos Technical Services, Inc.
-00:22:64	Hewlett-               # Hewlett-Packard Company
+00:22:64	hp                     # Hewlett-Packard Company
 00:22:65	NokiaDan               # Nokia Danmark A/S
 00:22:66	NokiaDan               # Nokia Danmark A/S
 00:22:67	NortelNe               # Nortel Networks
@@ -9100,7 +9100,7 @@
 00:23:7A	Rim
 00:23:7B	WhdiLlc                # WHDI LLC
 00:23:7C	Neotion
-00:23:7D	Hewlett-               # Hewlett-Packard Company
+00:23:7D	hp                     # Hewlett-Packard Company
 00:23:7E	Elster                 # ELSTER GMBH
 00:23:7F	Plantron               # PLANTRONICS
 00:23:80	Nanoteq
@@ -9357,7 +9357,7 @@
 00:24:7E	Universa               # Universal Global Scientific Industrial Co., Ltd
 00:24:7F	NortelNe               # Nortel Networks
 00:24:80	Meteocon               # Meteocontrol GmbH
-00:24:81	Hewlett-               # Hewlett-Packard Company
+00:24:81	hp                     # Hewlett-Packard Company
 00:24:82	RuckusWi               # Ruckus Wireless
 00:24:83	LgElectr               # LG Electronics
 00:24:84	BangAndO               # Bang and Olufsen Medicom a/s
@@ -9661,7 +9661,7 @@
 00:25:B0	Schmartz               # Schmartz Inc
 00:25:B1	Maya-Cre               # Maya-Creation Corporation
 00:25:B2	Lfk-Lenk               # LFK-Lenkflugkörpersysteme GmbH
-00:25:B3	Hewlett-               # Hewlett-Packard Company
+00:25:B3	hp                     # Hewlett-Packard Company
 00:25:B4	Cisco                  # Cisco Systems
 00:25:B5	Cisco                  # Cisco Systems
 00:25:B6	TelecomF               # Telecom FM
@@ -9820,7 +9820,7 @@
 00:26:52	Cisco                  # Cisco Systems
 00:26:53	Dayseque               # DaySequerra Corporation
 00:26:54	3com                   # 3Com Corporation
-00:26:55	Hewlett-               # Hewlett-Packard Company
+00:26:55	hp                     # Hewlett-Packard Company
 00:26:56	Sansonic               # Sansonic Electronics USA
 00:26:57	OooNppEk               # OOO NPP EKRA
 00:26:58	T-Platfo               # T-Platforms (Cyprus) Limited
@@ -10220,7 +10220,7 @@
 00:30:BE	City-Net               # City-Net Technology, Inc.
 00:30:BF	Multidat               # MULTIDATA GMBH
 00:30:C0	LaraTech               # Lara Technology, Inc.
-00:30:C1	Hewlett-               # HEWLETT-PACKARD
+00:30:C1	hp                     # HEWLETT-PACKARD
 00:30:C2	Comone
 00:30:C3	Flueckig               # FLUECKIGER ELEKTRONIK AG
 00:30:C4	CanonIma               # Canon Imaging Systems Inc.
@@ -10686,7 +10686,7 @@
 00:50:87	Terasaki               # TERASAKI ELECTRIC CO., LTD.
 00:50:88	Amano                  # AMANO CORPORATION
 00:50:89	SafetyMa               # SAFETY MANAGEMENT SYSTEMS
-00:50:8B	Hewlett-               # Hewlett-Packard Company
+00:50:8B	hp                     # Hewlett-Packard Company
 00:50:8C	Rsi                    # RSI SYSTEMS
 00:50:8D	AbitComp               # ABIT COMPUTER CORPORATION
 00:50:8E	Optimati               # OPTIMATION, INC.
@@ -11160,7 +11160,7 @@
 00:80:5C	Agilis                 # AGILIS CORPORATION
 00:80:5D	Canstar
 00:80:5E	LsiLogic               # LSI LOGIC CORPORATION
-00:80:5F	Hewlett-               # Hewlett-Packard Company
+00:80:5F	hp                     # Hewlett-Packard Company
 00:80:60	NetworkI               # NETWORK INTERFACE CORPORATION
 00:80:61	Litton                 # LITTON SYSTEMS, INC.
 00:80:62	Interfac               # INTERFACE  CO.
@@ -12692,13 +12692,13 @@
 00:FC:70	Intrepid               # Intrepid Control Systems, Inc.
 01:0E:CF	PN-MC		           # PROFINET Multicast
 02:04:06	BbnInter               # BBN				internal usage (not registered)
-02:07:01	Racal-Da               # RACAL-DATACOM
+02:07:01	RacalData              # RACAL-DATACOM
 02:1C:7C	Perq                   # PERQ SYSTEMS CORPORATION
 02:20:48	Marconi		           # At least some 2810 send with locally assigned flag set
 02:60:60	3com
 02:60:86	LogicRep               # LOGIC REPLACEMENT TECH. LTD.
 02:60:8C	3com                   # 3COM CORPORATION
-02:70:01	Racal-Da               # RACAL-DATACOM
+02:70:01	RacalData               # RACAL-DATACOM
 02:70:B0	M/A-ComC               # M/A-COM INC. COMPANIES
 02:70:B3	DataReca               # DATA RECALL LTD
 02:9D:8E	CardiacR               # CARDIAC RECORDERS INC.
@@ -12998,7 +12998,7 @@
 10:13:EE	JustecIn               # Justec International Technology INC.
 10:18:9E	ElmoMoti               # Elmo Motion Control
 10:1D:C0	SamsungE               # Samsung Electronics Co.,Ltd
-10:1F:74	Hewlett-               # Hewlett-Packard Company 
+10:1F:74	hp                     # Hewlett-Packard Company 
 10:2D:96	Looxcie                # Looxcie Inc.
 10:2E:AF	TexasIns               # Texas Instruments
 10:37:11	SimlinkA               # Simlink AS
@@ -13103,7 +13103,7 @@
 18:8E:D5	PhilipsI               # Philips Innovative Application NV 
 18:92:2C	VirtualI               # Virtual Instruments
 18:97:FF	Techfait               # TechFaith Wireless Technology Limited
-18:A9:05	Hewlett-               # Hewlett-Packard Company
+18:A9:05	hp                     # Hewlett-Packard Company
 18:AB:F5	UltraEle               # Ultra Electronics - Electrics
 18:AD:4D	Polostar               # Polostar Technology Corporation
 18:AE:BB	SiemensP               # Siemens Programm- und Systementwicklung GmbH&Co.KG
@@ -13149,7 +13149,7 @@
 1C:AF:F7	D-LinkIn               # D-LINK INTERNATIONAL PTE LIMITED
 1C:BD:0E	Amplifie               # Amplified Engineering Pty Ltd
 1C:BD:B9	D-LinkIn               # D-LINK INTERNATIONAL PTE LIMITED
-1C:C1:DE	Hewlett-               # Hewlett-Packard Company
+1C:C1:DE	hp                     # Hewlett-Packard Company
 1C:DF:0F	Cisco                  # Cisco Systems
 1C:E1:92	Qisda                  # Qisda Corporation
 1C:E2:CC	TexasIns               # Texas Instruments
@@ -13289,16 +13289,16 @@
 2C:19:84	IdnTelec               # IDN Telecom, Inc.
 2C:1E:EA	Aerodev
 2C:21:72	JuniperN               # Juniper Networks
-2C:27:D7	Hewlett-               # Hewlett-Packard Company
+2C:27:D7	hp                     # Hewlett-Packard Company
 2C:30:68	Pantech                # Pantech Co.,Ltd
 2C:34:27	Erco&Amp               # ERCO &amp; GENER
 2C:3A:28	FagorEle               # Fagor Electrï¿½nica
 2C:3F:38	Cisco                  # Cisco Systems
 2C:3F:3E	Alge-Tim               # Alge-Timing GmbH
-2C:41:38	Hewlett-               # Hewlett-Packard Company 
+2C:41:38	hp                     # Hewlett-Packard Company 
 2C:44:01	SamsungE               # Samsung Electronics Co.,Ltd
 2C:6B:F5	JuniperN               # Juniper networks
-2C:76:8A	Hewlett-               # Hewlett-Packard Company
+2C:76:8A	hp                     # Hewlett-Packard Company
 2C:7A:FE	Iee&E"Bl               # IEE&E "Black" ops
 2C:7E:CF	Onzo                   # Onzo Ltd
 2C:80:65	HartingO               # HARTING Inc. of North America
@@ -13444,7 +13444,7 @@
 3C:2D:B7	TexasIns               # Texas Instruments
 3C:2F:3A	Sforzato               # SFORZATO Corp.
 3C:39:C3	JwElectr               # JW Electronics Co., Ltd.
-3C:4A:92	Hewlett-               # Hewlett-Packard Company
+3C:4A:92	hp                     # Hewlett-Packard Company
 3C:4C:69	Infinity               # Infinity System S.L.
 3C:5A:37	SamsungE               # Samsung Electronics
 3C:5F:01	Synerchi               # Synerchip Co., Ltd.
@@ -13467,7 +13467,7 @@
 3C:C0:C6	D&Amp;BA               # d&amp;b audiotechnik GmbH
 3C:C9:9E	HuiyangT               # Huiyang Technology Co., Ltd
 3C:D1:6E	Telepowe               # Telepower Communication Co., Ltd
-3C:D9:2B	Hewlett-               # Hewlett-Packard Company
+3C:D9:2B	hp                     # Hewlett-Packard Company
 3C:DF:1E	Cisco                  # Cisco Systems
 3C:E5:A6	Hangzhou               # Hangzhou H3C Technologies Co., Ltd.
 3C:E5:B4	KidasenI               # KIDASEN INDUSTRIA E COMERCIO DE ANTENAS LTDA
@@ -13536,7 +13536,7 @@
 40:F4:EC	Cisco                  # Cisco Systems
 40:F5:2E	LeicaMic               # Leica Microsystems (Schweiz) AG
 40:FC:89	Motorola               # Motorola Mobility, Inc.
-44:1E:A1	Hewlett-               # Hewlett-Packard Company
+44:1E:A1	hp                     # Hewlett-Packard Company
 44:25:BB	BambooEn               # Bamboo Entertainment Corporation
 44:2A:60	Apple                  # Apple, Inc.
 44:37:19	2SaveEne               # 2 Save Energy Ltd
@@ -13869,7 +13869,7 @@
 64:16:F0	Shehzhen               # Shehzhen Huawei Communication Technologies Co., Ltd.
 64:1A:22	Heliospe               # Heliospectra/Woodhill Investments
 64:1E:81	Dowslake               # Dowslake Microsystems
-64:31:50	Hewlett-               # Hewlett-Packard Company
+64:31:50	hp                     # Hewlett-Packard Company
 64:31:7E	Dexin                  # Dexin Corporation
 64:34:09	BitwaveP               # BITwave Pte Ltd
 64:43:46	Guangdon               # GuangDong Quick Network Computer CO.,LTD
@@ -13947,7 +13947,7 @@
 68:A3:C4	LiteonTe               # Liteon Technology Corporation
 68:A8:6D	Apple                  # Apple, Inc.
 68:AA:D2	Datecs                 # DATECS LTD.,
-68:B5:99	Hewlett-               # Hewlett-Packard Company
+68:B5:99	hp                     # Hewlett-Packard Company
 68:BC:0C	Cisco                  # Cisco Systems
 68:BD:AB	Cisco                  # Cisco Systems
 68:CA:00	Octopus                # Octopus Systems Limited
@@ -14125,7 +14125,7 @@
 78:A6:83	Precidat               # Precidata
 78:A6:BD	DaeyeonC               # DAEYEON Control&Instrument Co,.Ltd
 78:A7:14	Amphenol
-78:AC:C0	Hewlett-               # Hewlett-Packard Company
+78:AC:C0	hp                     # Hewlett-Packard Company
 78:B6:C1	AoboTele               # AOBO Telecom Co.,Ltd
 78:B8:1A	InterSal               # INTER SALES A/S
 78:BA:D0	Shinybow               # Shinybow Technology Co. Ltd.
@@ -14140,9 +14140,9 @@
 78:DD:08	HonHaiPr               # Hon Hai Precision Ind. Co.,Ltd. 
 78:DD:D6	C-Scape
 78:DE:E4	TexasIns               # Texas Instruments
-78:E3:B5	Hewlett-               # Hewlett-Packard Company
+78:E3:B5	hp                     # Hewlett-Packard Company
 78:E4:00	HonHaiPr               # Hon Hai Precision Ind. Co.,Ltd. 
-78:E7:D1	Hewlett-               # Hewlett-Packard Company
+78:E7:D1	hp                     # Hewlett-Packard Company
 78:EC:22	Shanghai               # Shanghai Qihui Telecom Technology Co., LTD
 78:EF:4C	Unetconv               # Unetconvergence Co., Ltd.
 78:F7:D0	Silverbr               # Silverbrook Research
@@ -14469,7 +14469,7 @@
 98:42:46	SolIndus               # SOL INDUSTRY PTE., LTD
 98:4A:47	ChgHospi               # CHG Hospital Beds
 98:4B:4A	Motorola               # Motorola Mobility Inc.
-98:4B:E1	Hewlett-               # Hewlett-Packard Company
+98:4B:E1	hp                     # Hewlett-Packard Company
 98:4E:97	Starligh               # Starlight Marketing (H. K.) Ltd.
 98:58:8A	Sysgrati               # SYSGRATION Ltd.
 98:59:45	TexasIns               # Texas Instruments
@@ -14521,7 +14521,7 @@
 9C:7B:D2	NeolabCo               # NEOLAB Convergence
 9C:80:7D	Syscable               # SYSCABLE Korea Inc.
 9C:8B:F1	Warehous               # The Warehouse Limited
-9C:8E:99	Hewlett-               # Hewlett-Packard Company
+9C:8E:99	hp                     # Hewlett-Packard Company
 9C:93:4E	Xerox                  # Xerox Corporation
 9C:95:F8	Smartdoo               # SmartDoor Systems, LLC
 9C:A3:BA	SakuraIn               # SAKURA Internet Inc.
@@ -14778,7 +14778,7 @@ B4:5C:A4	Thing-Ta               # Thing-talk Wireless Communication Technologies
 B4:74:9F	AskeyCom               # askey computer corp
 B4:82:FE	AskeyCom               # Askey Computer Corp
 B4:94:4E	Weteleco               # WeTelecom Co., Ltd.
-B4:99:BA	Hewlett-               # Hewlett-Packard Company
+B4:99:BA	hp                     # Hewlett-Packard Company
 B4:A4:E3	Cisco                  # Cisco Systems
 B4:A5:A9	Modi                   # MODI GmbH
 B4:AA:4D	Ensequen               # Ensequence, Inc.
@@ -14828,7 +14828,7 @@ B8:A3:86	D-LinkIn               # D-Link International
 B8:A3:E0	BenruiTe               # BenRui Technology Co.,Ltd
 B8:A8:AF	LogicSPA               # Logic S.p.A.
 B8:AC:6F	Dell                   # Dell Inc
-B8:AF:67	Hewlett-               # Hewlett-Packard Company
+B8:AF:67	hp                     # Hewlett-Packard Company
 B8:B1:C7	Bt&Com                 # BT&COM CO.,LTD
 B8:B4:2E	GioneeCo               # Gionee Communication Equipment Co,Ltd.ShenZhen
 B8:BA:68	XiAnJizh               # Xi'an Jizhong Digital Communication Co.,Ltd
@@ -15140,7 +15140,7 @@ D4:6F:42	WaxessUs               # WAXESS USA Inc
 D4:79:C3	Camerone               # Cameronet GmbH &amp; Co. KG
 D4:7B:75	HartingE               # HARTING Electronics GmbH & Co. KG
 D4:82:3E	ArgosyTe               # Argosy Technologies, Ltd.
-D4:85:64	Hewlett-               # Hewlett-Packard Company
+D4:85:64	hp                     # Hewlett-Packard Company
 D4:88:90	SamsungE               # Samsung Electronics Co.,Ltd
 D4:8F:AA	SogecamI               # Sogecam Industrial, S.A.
 D4:91:AF	Electroa               # Electroacustica General Iberica, S.A.
@@ -15205,7 +15205,7 @@ D8:C0:68	Netgenet               # Netgenetech.co.,ltd.
 D8:C3:FB	Detracom
 D8:C7:C8	ArubaNet               # Aruba Networks
 D8:C9:9D	EaDispla               # EA DISPLAY LIMITED
-D8:D3:85	Hewlett-               # Hewlett-Packard Company
+D8:D3:85	hp                     # Hewlett-Packard Company
 D8:D6:7E	GskCncEq               # GSK CNC EQUIPMENT CO.,LTD
 D8:DF:0D	Beronet                # beroNet GmbH
 D8:E3:AE	CirtecMe               # CIRTEC MEDICAL SYSTEMS
@@ -15513,7 +15513,7 @@ F4:B5:49	YeastarT               # Yeastar Technology Co., Ltd.
 F4:C7:14	HuaweiDe               # Huawei Device Co., Ltd
 F4:C7:95	WeyElekt               # WEY Elektronik AG
 F4:CA:E5	FreeboxS               # FREEBOX SA
-F4:CE:46	Hewlett-               # Hewlett-Packard Company
+F4:CE:46	hp                     # Hewlett-Packard Company
 F4:D9:FB	SamsungE               # Samsung Electronics CO., LTD
 F4:DC:4D	BeijingC               # Beijing CCD Digital Technology Co., Ltd
 F4:DC:DA	ZhuhaiJi               # Zhuhai Jiahe Communication Technology Co., limited
