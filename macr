@@ -180,13 +180,16 @@ def fileSearch(key):
     return result
 
 
+########################################################################
+
+
 def main():
 
 # Parser argv.
     parser = argparse.ArgumentParser(
             description='macr - Randomizes MAC addresses and much more')
-    parser.add_argument('-i', '--interface', action='store',
-                        dest='interface', help='Set interface name.')
+    parser.add_argument('-i', '--interface', action='append',
+                        help='Set interface name.')
     parser.add_argument('-m', '--mac', action='store', dest='mac',
                         help='Manually sets the mac address.')
     parser.add_argument('-p', '--predefined', action='store_true', 
@@ -202,6 +205,7 @@ def main():
                         dest='vendor', 
                         help='Sets the first 3 bytes to match a' 
                         ' mac address of the given vendor.')
+    
     arg = parser.parse_args()
 
     if debug_out == True:
@@ -210,72 +214,79 @@ def main():
 
 # No interface use the default
     if arg.interface is None:
-        arg.interface = fileSearch('interface')
+        arg.interface = []
+        arg.interface.append(fileSearch('interface'))
         
         
 # Display current mac address and exit
     if arg.show is True:
-        show = interface(None, arg.interface)
-        print(arg.interface + ':', show.get())
+        for i in arg.interface:
+            show = interface(None, i)
+            print(i +  ':', show.get())
         exit(0)
 
 
 # change the ending of the mac addr
     if arg.end is True:
-       end = interface(None, arg.interface)
-       end.newMac = end.get()[:8] + macRand()[8:]
-       end.set()
-       end.display()
-       exit(0)
+        for i in arg.interface:
+            end = interface(None, i)
+            end.newMac = end.get()[:8] + macRand()[8:]
+            end.set()
+            end.display()
+        exit(0)
 
        
 # Set the vendor bytes
     if arg.vendor is not None:
-        vendor = interface(None, arg.interface)
-        vlist = fileSearch('vlist')
-        result = []
-        for line in open(vlist, 'r'):
-            if line[:1] == '#':
-                pass
-            elif arg.vendor.lower() in line[ 9 : len(arg.vendor) + 9 ].lower():
-                result.append(line[:8])
-        #print(result)
-        vendor.newMac = result[random.randrange(len(result))] + macRand()[8:]
-        vendor.set()
-        vendor.display()
+        for i in arg.interface:
+            vendor = interface(None, i)
+            vlist = fileSearch('vlist')
+            result = []
+            for line in open(vlist, 'r'):
+                if line[:1] == '#':
+                    pass
+                elif arg.vendor.lower() in line[ 9 : len(arg.vendor) + 9 ].lower():
+                    result.append(line[:8])
+            #print(result)
+            vendor.newMac = result[random.randrange(len(result))] + macRand()[8:]
+            vendor.set()
+            vendor.display()
         exit(0)
 
 
 # mac predefined in arguments
     if arg.mac is not None:
-        mac = interface(arg.mac, arg.interface)
-        if debug_out == True:
-            print(mac.name + '\'s old addr =', mac.oldMac)
-            print(mac.name + '\'s new addr = ', mac.newMac)
-        mac.set()
-        mac.display()
+        for i in arg.interface:
+            mac = interface(arg.mac, i)
+            if debug_out == True:
+                print(mac.name + '\'s old addr =', mac.oldMac)
+                print(mac.name + '\'s new addr = ', mac.newMac)
+            mac.set()
+            mac.display()
         exit(0)
 
         
 # Predefined mac macr.conf
     if arg.predefined is True:
-        predefinedMac = fileSearch('predefined mac')
-        predefined = interface(predefinedMac, arg.interface)
-        if debug_out == True:
-            print(predefined.name + '\'s old addr =', predefined.oldMac)
-            print(predefined.name + '\'s new addr = ', predefined.newMac)
-        predefined.set()
-        predefined.display()
+        for i in arg.interface:
+            predefinedMac = fileSearch('predefined mac')
+            predefined = interface(predefinedMac, i)
+            if debug_out == True:
+                print(predefined.name + '\'s old addr =', predefined.oldMac)
+                print(predefined.name + '\'s new addr = ', predefined.newMac)
+            predefined.set()
+            predefined.display()
         exit(0)
 
 
 # No arguments default
-    iface = interface(macRand(), arg.interface)
-    if debug_out == True:
-        print(iface.name + '\'s old addr =', iface.oldMac)
-        print(iface.name + '\'s new addr =', iface.newMac)
-    iface.set()
-    iface.display()
+    for i in arg.interface:
+        iface = interface(macRand(), i)
+        if debug_out == True:
+            print(iface.name + '\'s old addr =', iface.oldMac)
+            print(iface.name + '\'s new addr =', iface.newMac)
+        iface.set()
+        iface.display()
 
     return 0
 
