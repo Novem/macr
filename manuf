@@ -1625,9 +1625,9 @@
 00:06:28	Cisco                  # Cisco Systems, Inc.
 00:06:29	Ibm                    # IBM Corp
 00:06:2A	Cisco                  # Cisco Systems, Inc.
-00:06:2B	Intraser               # INTRASERVER TECHNOLOGY
-00:06:2C	BivioNet               # Bivio Networks
-00:06:2D	Touchsta               # TouchStar Technologies, L.L.C.
+00:06:2B	Intraser               #
+00:06:2C	BivioNet               # Bivio Network
+00:06:2D    TOUCHSTA               # TouchStar Tech
 00:06:2E	AristosL               # Aristos Logic Corp.
 00:06:2F	Pivotech               # Pivotech Systems Inc.
 00:06:30	AdtranzS               # Adtranz Sweden
@@ -5861,7 +5861,7 @@
 00:16:D3	Wistron                # Wistron Corporation
 00:16:D4	CompalCo               # Compal Communications, Inc.
 00:16:D5	Synccom                # Synccom Co., Ltd
-00:16:D6	TdaTechP               # TDA Tech Pty Ltd
+00:16:D6	TdaTech                # TDA Tech Pty Ltd
 00:16:D7	Sunways                # Sunways AG
 00:16:D8	Senea                  # Senea AB
 00:16:D9	NingboBi               # NINGBO BIRD CO.,LTD.
@@ -6475,7 +6475,7 @@
 00:19:39	Gigamips
 00:19:3A	Oesoluti               # OESOLUTIONS
 00:19:3B	WiliboxD               # Wilibox Deliberant Group LLC
-00:19:3C	Highpoin               # HighPoint Technologies Incorporated
+00:19:3C	Highpoint              # HighPoint Technologies Incorporated
 00:19:3D	GmcGuard               # GMC Guardian Mobility Corp.
 00:19:3E	PirelliB               # PIRELLI BROADBAND SOLUTIONS
 00:19:3F	RdiTechn               # RDI technology(Shenzhen) Co.,LTD

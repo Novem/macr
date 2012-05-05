@@ -190,7 +190,7 @@ def main():
             description='macr - Randomizes MAC addresses and much more')
     parser.add_argument('-i', '--interface', action='append',
                         help='Set interface name.')
-    parser.add_argument('-m', '--mac', action='store', dest='mac',
+    parser.add_argument('-a', '--address', action='store', dest='address',
                         help='Manually sets the mac address.')
     parser.add_argument('-p', '--predefined', action='store_true', 
                         dest='predefined', 
@@ -201,11 +201,13 @@ def main():
     parser.add_argument('-e', '--end', action='store_true',  
                         dest='end', 
                         help='Change the ending and keeps the vendor bytes')
-    parser.add_argument('-v', '--vendor', action='store',  
-                        dest='vendor', 
+    parser.add_argument('-m', '--manufacturer', action='store',  
+                        dest='manufacturer', 
                         help='Sets the first 3 bytes to match a' 
                         ' mac address of the given vendor.')
-    
+    parser.add_argument('-v', '--verbose', action='store_true', dest='verbose',
+                        help='Verbose output.')
+
     arg = parser.parse_args()
 
     if debug_out == True:
@@ -216,7 +218,8 @@ def main():
     if arg.interface is None:
         arg.interface = []
         arg.interface.append(fileSearch('interface'))
-        
+        if arg.verbose is True:
+            print('Using default interface:', arg.interface)
         
 # Display current mac address and exit
     if arg.show is True:
@@ -228,6 +231,8 @@ def main():
 
 # change the ending of the mac addr
     if arg.end is True:
+        if arg.verbose is True:
+            print('Changing the ending of', arg.interface)
         for i in arg.interface:
             end = interface(None, i)
             end.newMac = end.get()[:8] + macRand()[8:]
@@ -237,37 +242,44 @@ def main():
 
        
 # Set the vendor bytes
-    if arg.vendor is not None:
+    if arg.manufacturer is not None:
+        if arg.verbose is True:
+            print('Mac address will appear to be from', arg.manufacturer.lower())
         for i in arg.interface:
-            vendor = interface(None, i)
+            manufacturer = interface(None, i)
             vlist = fileSearch('vlist')
             result = []
-            for line in open(vlist, 'r'):
+            for line in open(vlist, 'r', encoding='utf-8'):
                 if line[:1] == '#':
                     pass
-                elif arg.vendor.lower() in line[ 9 : len(arg.vendor) + 9 ].lower():
+                elif arg.manufacturer.lower() in line[ 9 : len(arg.manufacturer)
+                                                      + 9 ].lower():
                     result.append(line[:8])
             #print(result)
-            vendor.newMac = result[random.randrange(len(result))] + macRand()[8:]
-            vendor.set()
-            vendor.display()
+            manufacturer.newMac = result[random.randrange(len(result))] + macRand()[8:]
+            manufacturer.set()
+            manufacturer.display()
         exit(0)
 
 
-# mac predefined in arguments
-    if arg.mac is not None:
+# Manually sets the mac address.
+    if arg.address is not None:
+        if arg.verbose is True:
+            print('Using mac address:', arg.address)
         for i in arg.interface:
-            mac = interface(arg.mac, i)
+            address = interface(arg.address, i)
             if debug_out == True:
-                print(mac.name + '\'s old addr =', mac.oldMac)
-                print(mac.name + '\'s new addr = ', mac.newMac)
-            mac.set()
-            mac.display()
+                print(address.name + '\'s old addr =', address.oldMac)
+                print(address.name + '\'s new addr = ', address.newMac)
+            address.set()
+            address.display()
         exit(0)
 
-        
+# TODO profiles scrap predefined         
 # Predefined mac macr.conf
     if arg.predefined is True:
+        if arg.verbose is True:
+            print('Using address from macr.conf')
         for i in arg.interface:
             predefinedMac = fileSearch('predefined mac')
             predefined = interface(predefinedMac, i)

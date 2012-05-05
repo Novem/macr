@@ -26,6 +26,48 @@ import os
 import sys
 
 
+def cConf():
+    conf = open('/etc/macr/macr.conf', 'a')
+
+    interface = input('Interface (eth0): ')
+    if interface is '':
+        conf.write('interface = eth0\n\n')
+    else:
+        line = str('interface = ' + interface + '\n\n')
+        conf.write(line)
+
+    prolist = input('Profile list (/usr/share/macr/profiles): ')
+    if prolist is '':
+        os.system('cp profiles /usr/share/macr/profiles')
+        conf.write('profilelist = /usr/share/macr/profiles\n\n')
+    else:
+        line = str('profilelist = ' + prolist + '\n\n')
+        conf.write(line)
+
+    vlist = input('Vendor list (/usr/share/macr/manuf): ')
+    if vlist is '':
+         os.system('cp manuf /usr/share/macr/manuf')
+         conf.write('vlist = /usr/share/macr/manuf\n\n')
+    else:
+        line = str('vlist = ' + vlist + '\n\n')
+        conf.write(line)
+
+    os.system('cp macr /usr/local/bin/macr')
+
+    conf.close()
+    print('Macr installed')
+    exit(0) 
+
+def dConf():
+    print('copying files...')
+    os.system('cp macr.conf /etc/macr/macr.conf')
+    os.system('cp profiles /usr/share/macr/profiles')
+    os.system('cp manuf /usr/share/macr/manuf')
+    os.system('cp macr /usr/local/bin/macr')
+
+    print('Macr installed')
+    exit(0)
+
 def main():
     
     print('Checking OS...')
@@ -40,12 +82,12 @@ def main():
         
         
     print('Checking Python version...')
-    if sys.version_info[0] == 3:
+    if sys.version_info[0] == 3 and sys.version_info[1] == 2:
         print('Python version', sys.version_info[0:3], 
-              'sould be sufficient')
+              'should be sufficient')
     else:
-        print('It appears that you are not using python3 ')
-        print('Macr will only work on python3')
+        print('It appears that you are not using python3.2 ')
+        print('Macr will only work on python3.2 or later.')
         exit(1)
     
     parser = argparse.ArgumentParser(description='Macr installer.')
@@ -61,20 +103,21 @@ def main():
         print('Making directories...')
         os.makedirs('/etc/macr/')
         os.makedirs('/usr/share/macr/')
+
+        makeConf = input('Would you like make a custom conf file(Y/n): ')
+        if makeConf == 'y' or makeConf == 'Y' or makeConf == 'yes':
+            print('Making custom conf file.')
+            cConf()
+        else:
+            print('Using default conf file.')
+            dConf()  
         
-        print('copying files...')
-        os.system('cp macr.conf /etc/macr/macr.conf')
-        os.system('cp manuf /usr/share/macr/manuf')
-        os.system('cp macr /usr/bin/macr')
-        
-        print('Macr installed')
-        exit(0)
         
     if arg.uninstall is True:
         print('Uninstalling macr...')
         os.system('rm -R /etc/macr')
         os.system('rm  -R /usr/share/macr')
-        os.system('rm -R /usr/bin/macr')
+        os.system('rm /usr/local/bin/macr')
         
         print('Macr uninstalled')
         exit(0)

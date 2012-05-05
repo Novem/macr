@@ -36,10 +36,10 @@ OPTIONS
         Manually sets which interface to use. If this is not used macr will
         use the interface defined in /etc/macr.conf.
 
-    -m ADDRESS --mac ADDERESS
+    -a ADDRESS --adderess ADDERESS
         Manually sets the mac address.
 
-    -v VENDOR --vendor VENDOR
+    -m VENDOR --manufacturer VENDOR
         Sets the first 3 bytes to match a mac address
         of the given vendor. For example Ieee8021 will 
         yield a address beganing with '00:0F:AC', or '00:80:C2' 
