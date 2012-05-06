@@ -176,7 +176,7 @@ def fileSearch(key):
         if line[:1] == '#':
             pass
         elif key in line:
-            result = line[len(key) + 3:-1]
+            result = line[len(key) + 1:-1]
     return result
 
 
@@ -192,9 +192,8 @@ def main():
                         help='Set interface name.')
     parser.add_argument('-a', '--address', action='store', dest='address',
                         help='Manually sets the mac address.')
-    parser.add_argument('-p', '--predefined', action='store_true', 
-                        dest='predefined', 
-                        help='Use predefined mac from macr.conf')
+    parser.add_argument('-p', '--profile', action='store', dest='profile',
+                        help='...')
     parser.add_argument('-s', '--show', action='store_true', 
                         dest='show', 
                         help='Display current mac address and exit')
@@ -275,19 +274,18 @@ def main():
             address.display()
         exit(0)
 
-# TODO profiles scrap predefined         
-# Predefined mac macr.conf
-    if arg.predefined is True:
-        if arg.verbose is True:
-            print('Using address from macr.conf')
+    if arg.profile is not None:
         for i in arg.interface:
-            predefinedMac = fileSearch('predefined mac')
-            predefined = interface(predefinedMac, i)
-            if debug_out == True:
-                print(predefined.name + '\'s old addr =', predefined.oldMac)
-                print(predefined.name + '\'s new addr = ', predefined.newMac)
-            predefined.set()
-            predefined.display()
+            result = ''
+            profilelist = fileSearch('profilelist')
+            for line in open(profilelist, 'r', encoding='utf-8'):
+                if line[:1] == '#':
+                    pass
+                elif arg.profile.lower() in line[:len(arg.profile)] and line[len(arg.profile)] == '=':
+                    result = line[len(arg.profile) + 1:-1]
+            profile = interface(result, i)
+            profile.set()
+            profile.display()
         exit(0)
 
 

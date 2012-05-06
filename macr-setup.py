@@ -31,25 +31,25 @@ def cConf():
 
     interface = input('Interface (eth0): ')
     if interface is '':
-        conf.write('interface = eth0\n\n')
+        conf.write('interface=eth0\n\n')
     else:
-        line = str('interface = ' + interface + '\n\n')
+        line = str('interface=' + interface + '\n\n')
         conf.write(line)
 
     prolist = input('Profile list (/usr/share/macr/profiles): ')
     if prolist is '':
         os.system('cp profiles /usr/share/macr/profiles')
-        conf.write('profilelist = /usr/share/macr/profiles\n\n')
+        conf.write('profilelist=/usr/share/macr/profiles\n\n')
     else:
-        line = str('profilelist = ' + prolist + '\n\n')
+        line = str('profilelist=' + prolist + '\n\n')
         conf.write(line)
 
     vlist = input('Vendor list (/usr/share/macr/manuf): ')
     if vlist is '':
          os.system('cp manuf /usr/share/macr/manuf')
-         conf.write('vlist = /usr/share/macr/manuf\n\n')
+         conf.write('vlist=/usr/share/macr/manuf\n\n')
     else:
-        line = str('vlist = ' + vlist + '\n\n')
+        line = str('vlist=' + vlist + '\n\n')
         conf.write(line)
 
     os.system('cp macr /usr/local/bin/macr')

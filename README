@@ -9,7 +9,7 @@ DESCRIPTION
     to the interface defined in /etc/macr.conf. This is great quick and easy 
     address spoofing. However, this is not the fullest extent of macr's 
     capabilities. Macr can randomizes the end of the address, pick a 
-    random vendor OUI, grab an address from a macr.conf, or even allow you to
+    random vendor OUI, use a profile, or even allow you to
     define an address manually.
     
     Macr was originally inspired be mac_spoof.py write by a5an0 and is 
@@ -24,11 +24,12 @@ OPTIONS
     -h --help
         Displays help massage and exits.
 
-    -p --predefined
-        Instead of randomizeing the address the macr will go to the file 
-        /etc/macr.conf and use the address in that file. 
-        The default address is 00:11:22:33:44:55 
-
+    -p PROFILE --profile PROFILE
+        Instead of randomizeing the address the macr will go to the profile
+        file and use the address associated in that the given profile. 
+        In the default file the profile sequence will yeild 00:11:22:33:44:55
+        and deadbeef will yeild 00:DE:AD:BE:EF:00.
+        
     -s --show
         Displays the current address and exits.
 
