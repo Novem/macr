@@ -52,7 +52,9 @@ def cConf():
         line = str('vlist=' + vlist + '\n\n')
         conf.write(line)
 
-    os.system('cp macr /usr/local/bin/macr')
+    os.system('cp macr /usr/share/macr/macr')
+    os.system('cp macr.py /usr/share/macr/macr.py')
+    os.system('ln -s /usr/share/macr/macr /usr/local/bin/macr')
 
     conf.close()
     print('Macr installed')
@@ -63,37 +65,43 @@ def dConf():
     os.system('cp macr.conf /etc/macr/macr.conf')
     os.system('cp profiles /usr/share/macr/profiles')
     os.system('cp manuf /usr/share/macr/manuf')
-    os.system('cp macr /usr/local/bin/macr')
+    os.system('cp macr /usr/share/macr/macr')
+    os.system('cp macr.py /usr/share/macr/macr.py')
+    os.system('ln -s /usr/share/macr/macr /usr/local/bin/macr')
 
     print('Macr installed')
     exit(0)
 
 def main():
     
-    print('Checking OS...')
     if os.uname()[0] == 'Linux':
-        print('OS is Linux.')
+        pass 
     else:
         print('OS is', os.uname()[0])
         print('You know at this time macr only works')
         print('on linux but i would like to get it working')
         print('on freebsd and other systems.')
-        exit(1, msg='OS is not Linux.')
+        exit(1)
         
-        
-    print('Checking Python version...')
-    if sys.version_info[0] == 3 and sys.version_info[1] == 2:
-        print('Python version', sys.version_info[0:3], 
-              'should be sufficient')
+    if sys.version_info[0] == 3:
+        if sys.version_info[1] >= 2:
+            pass
+        else:
+            print('It looks like your using a version >= 3.0 and < 3.2')
+            print("If you havn't already done so install argparse.")
+            print('http://pypi.python.org/pypi/argparse')
+            uinpt = input('Do what to continue (Y/n): ')
+            if uinpt == 'y' or uinpt == 'Y' or uinpt == 'yes':
+                exit()
     else:
-        print('It appears that you are not using python3.2 ')
-        print('Macr will only work on python3.2 or later.')
+        print('It appears that you are not using python3 ')
+        print('Macr will only work on python3 or later.')
         exit(1)
     
     parser = argparse.ArgumentParser(description='Macr installer.')
-    parser.add_argument('--install', action='store_true',
+    parser.add_argument('-i','--install', action='store_true',
                         dest='install', help='Install macr.')
-    parser.add_argument('--uninstall', action='store_true',
+    parser.add_argument('-u', '--uninstall', action='store_true',
                         dest='uninstall', help='Uninstall macr.')
     arg = parser.parse_args()
 # We should be good to go.
@@ -104,7 +112,7 @@ def main():
         os.makedirs('/etc/macr/')
         os.makedirs('/usr/share/macr/')
 
-        makeConf = input('Would you like make a custom conf file(Y/n): ')
+        makeConf = input('Would you like make a custom /etc/macr.conf file(Y/n): ')
         if makeConf == 'y' or makeConf == 'Y' or makeConf == 'yes':
             print('Making custom conf file.')
             cConf()
@@ -130,3 +138,4 @@ def main():
 if __name__ == '__main__':
     main()
 
+# vim: ai ts=4 sts=4 et sw=4 ft=python

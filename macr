@@ -23,164 +23,11 @@
 
 
 import argparse
-import binascii
-import fcntl 
-import os
-import random
-import socket
-import struct
+import macr
 
 # Debugging
 debug_out = False
 #debug_out = True
-
-# ioctl numbers
-SIOCGIFHWADDR = 0x8927 #get mac address
-SIOCSIFHWADDR = 0x8924 #set mac address
-
-SIOCGIWMODE = 0x8B07 #get operation mode
-SIOCSIWMODE = 0x8B06 #set operation mode
-
-SIOCGIFFLAGS = 0x8913 #get flag
-SIOCSIFFLAGS = 0x8914 #set flag
-
-
-###########################Class Interface##############################
-class interface:
-
-    def __init__(self, newMac, name):
-        self.soc = socket.socket(socket.AF_UNIX, socket.SOCK_RAW)
-        self.name = name
-        self.oldMac = self.get()
-        self.newMac = newMac
-
-
-    def get(self):
-        """ Gets the old mac address of the interface 
-		    and returns is in a standard format. 
-        """
-        raw = fcntl.ioctl(self.soc.fileno(), SIOCGIFHWADDR,  
-                          struct.pack('16s240x', 
-                          self.name[:15].encode('ascii')))
-        macS1 = binascii.hexlify(raw[18:24]).decode('utf-8')
-        macS1 += '     '
-        macS2 = ''
-        for i in range(17):
-            macS2 += macS1[i]
-            if i in range(1,12,2):
-                macS2 += ':'
-        return macS2[0:17]
-  
-  
-    def set(self):
-        """ Sets the new mac address """
-        self.stateToggle('down')
-        try:
-            opModeSwitched = False
-            if self.getOpMode() == b'06':
-                opModeSwitched = True
-                self.setOpMode('managed')
-        except IOError:
-            pass 
-        macS2 = ''
-        for i in range(17):
-            if self.newMac[i] != ':':
-                macS2 += self.newMac[i]
-        macS3 = binascii.unhexlify(macS2.encode('ascii'))
-        fcntl.ioctl(self.soc.fileno(), SIOCSIFHWADDR, 
-                    struct.pack('16sH12s226x',
-                    self.name.encode('ascii'), 1, macS3))
-        try:
-            if opModeSwitched == True:
-                self.setOpMode('monitor')
-        except IOError:
-            pass 
-        self.stateToggle('up')
-
-
-    def stateToggle(self, toggle):
-        """ Toggles the state of the interface. Up or down depending on
-		    the argument.
-        """
-        if toggle is 'up':
-            fcntl.ioctl(self.soc.fileno(), SIOCSIFFLAGS,
-                        struct.pack('16sH',
-                        self.name.encode('ascii'), 4099))
-        elif toggle is 'down':
-            fcntl.ioctl(self.soc.fileno(), SIOCSIFFLAGS, 
-                        struct.pack('16sH',
-                        self.name.encode('ascii'), 4098))
-    
-    
-    def getOpMode(self):
-        """ Get wireless operation mode. """
-        raw = fcntl.ioctl(self.soc.fileno(), SIOCGIWMODE,  
-                          struct.pack('16sx', 
-                          self.name[:15].encode('ascii')))
-        return binascii.hexlify(raw[16:])
-
-    
-    def setOpMode(self, mode):
-        """ Set wireless operation mode. """
-        if mode is 'managed':
-            fcntl.ioctl(self.soc.fileno(), SIOCSIWMODE,
-                        struct.pack('16sH247x',
-                        self.name[:15].encode('ascii'), 2))
-        elif mode is 'monitor':
-            fcntl.ioctl(self.soc.fileno(), SIOCSIWMODE,
-                        struct.pack('16sH247x',
-                        self.name[:15].encode('ascii'), 6))
-
-
-    def display(self): 
-        """ Checks if the old and new addresses are the same and 
-            displays the new mac address
-            
-        """
-        if self.newMac == self.oldMac:
-             print('Mac address has not changed!')
-             print(self.name + '\'s old addr =', self.oldMac)
-             print(self.name + '\'s new addr =', self.newMac)
-             print()
-        print (self.name + ': ' + self.newMac)
-
-                       
-########################################################################            
-
-def macRand():
-    """ returns a random mac address. """ 
-    hex = {
-           '0' : 0, '1' : 1, '2' : 2, '3' : 3,
-           '4' : 4, '5' : 5, '6' : 6, '7' : 7,
-           '8' : 8, '9' : 9, 'a' : 10,'b' : 11,
-           'c' : 12,'d' : 13,'e' : 14,'f' : 15 
-           }
-    rawMac = ''
-    for i in range(6):
-        rawMac += ":%02x" % random.randrange(256)
-        mac = rawMac[1:]
-    if hex[mac[1]] % 2 is 0: 
-        return mac 
-    else:
-        # from mac_spoof.py write by a5an0
-        rawMac = '00'
-        for i in range(5):
-            rawMac += ":%02x" % random.randrange(256)
-            mac = rawMac
-        return mac
-
-
-def fileSearch(key):
-# file parser func
-    for line in open('/etc/macr/macr.conf', 'r'):
-        if line[:1] == '#':
-            pass
-        elif key in line:
-            result = line[len(key) + 1:-1]
-    return result
-
-
-########################################################################
 
 
 def main():
@@ -200,106 +47,86 @@ def main():
     parser.add_argument('-e', '--end', action='store_true',  
                         dest='end', 
                         help='Change the ending and keeps the vendor bytes')
+    parser.add_argument('-b', '--begin', action='store_true',
+                        dest='begin',
+                        help='...')
     parser.add_argument('-m', '--manufacturer', action='store',  
                         dest='manufacturer', 
                         help='Sets the first 3 bytes to match a' 
                         ' mac address of the given vendor.')
     parser.add_argument('-v', '--verbose', action='store_true', dest='verbose',
                         help='Verbose output.')
+    parser.add_argument('-c', '--conf', action='store', dest='confFile',
+                       help='Use a different conf file.')
 
     arg = parser.parse_args()
 
     if debug_out == True:
         print(arg)
+
+# are we using the default conf file
+    if arg.confFile is None:
+        arg.confFile = '/etc/macr/macr.conf'
         
 
 # No interface use the default
     if arg.interface is None:
         arg.interface = []
-        arg.interface.append(fileSearch('interface'))
+        arg.interface.append(macr.fileSearch('interface', arg.confFile))
         if arg.verbose is True:
             print('Using default interface:', arg.interface)
         
+# action object
+    action = macr.Action()
+
+
+
+
 # Display current mac address and exit
     if arg.show is True:
-        for i in arg.interface:
-            show = interface(None, i)
-            print(i +  ':', show.get())
+        action.showAddr(arg.interface)
         exit(0)
-
 
 # change the ending of the mac addr
     if arg.end is True:
         if arg.verbose is True:
             print('Changing the ending of', arg.interface)
-        for i in arg.interface:
-            end = interface(None, i)
-            end.newMac = end.get()[:8] + macRand()[8:]
-            end.set()
-            end.display()
+        action.chEnding(arg.interface)
         exit(0)
 
-       
+# change the beginning of the mac addr
+    if arg.begin is True:
+        action.chBeginning(arg.interface)
+        exit(0)
+
 # Set the vendor bytes
     if arg.manufacturer is not None:
         if arg.verbose is True:
             print('Mac address will appear to be from', arg.manufacturer.lower())
-        for i in arg.interface:
-            manufacturer = interface(None, i)
-            vlist = fileSearch('vlist')
-            result = []
-            for line in open(vlist, 'r', encoding='utf-8'):
-                if line[:1] == '#':
-                    pass
-                elif arg.manufacturer.lower() in line[ 9 : len(arg.manufacturer)
-                                                      + 9 ].lower():
-                    result.append(line[:8])
-            #print(result)
-            manufacturer.newMac = result[random.randrange(len(result))] + macRand()[8:]
-            manufacturer.set()
-            manufacturer.display()
+        action.manufact(arg.interface, arg.manufacturer)
         exit(0)
-
 
 # Manually sets the mac address.
     if arg.address is not None:
         if arg.verbose is True:
             print('Using mac address:', arg.address)
-        for i in arg.interface:
-            address = interface(arg.address, i)
-            if debug_out == True:
-                print(address.name + '\'s old addr =', address.oldMac)
-                print(address.name + '\'s new addr = ', address.newMac)
-            address.set()
-            address.display()
+        action.manAddr(arg.interface, arg.address)
         exit(0)
 
+# Profiles 
     if arg.profile is not None:
-        for i in arg.interface:
-            result = ''
-            profilelist = fileSearch('profilelist')
-            for line in open(profilelist, 'r', encoding='utf-8'):
-                if line[:1] == '#':
-                    pass
-                elif arg.profile.lower() in line[:len(arg.profile)] and line[len(arg.profile)] == '=':
-                    result = line[len(arg.profile) + 1:-1]
-            profile = interface(result, i)
-            profile.set()
-            profile.display()
+        action.profile(arg.interface, arg.profile)
         exit(0)
-
 
 # No arguments default
-    for i in arg.interface:
-        iface = interface(macRand(), i)
-        if debug_out == True:
-            print(iface.name + '\'s old addr =', iface.oldMac)
-            print(iface.name + '\'s new addr =', iface.newMac)
-        iface.set()
-        iface.display()
+    action.random(arg.interface)
+    exit(0)
 
     return 0
 
 
 if __name__ == '__main__':
     main()
+
+
+# vim: ai ts=4 sts=4 et sw=4 ft=python
